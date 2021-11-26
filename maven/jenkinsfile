@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    
+    tools{
+        
+        maven "mvn"
+    }
+    
+    stages{
+        stage('Build'){
+            
+            steps{
+                git 'https://github.com/vtelugu/jenkinspipeline.git'
+                
+                bat 'mvn clean test'
+            }
+        }
+    }
+}
